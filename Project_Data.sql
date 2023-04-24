@@ -3,9 +3,31 @@
 -- Jack Fiengo, Griffin Schenker, Gabe Agrama, and Aidan Burke
 -- 4/28/2023 // Dr. Venkat Margapuri
 
+-- Team Table Data Insertion
+INSERT INTO team VALUES
+(1,'Atlanta','East','Alex Anthopoulos','NL',1876,'Braves Holdings LLC','Georgia','Braves','Brian Snitker');
+INSERT INTO team VALUES
+(2,'New York City','East','Billy Eppler','NL',1962,'Steve Cohen','New York','Mets','Buck Showalter');
+INSERT INTO team VALUES
+(3,'Miami','East','Kim Ng','NL',1991,'Bruce Sherman','Florida','Marlins','Don Mattingly');
+INSERT INTO team VALUES
+(4,'Philadelphia','East','Sam Fuld','NL',1883,'John Middleton','Pennsylvania','Phillies','Rob Thomson');
+INSERT INTO team VALUES
+(5,'Washington DC','East','Mike Rizzo','NL',1969,'Ted Lerner',NULL,'Nationals','Dave Martinez');
+INSERT INTO team VALUES
+(6,'Tampa Bay','East','Peter Bendix','AL',1998,'Stuart Sternberg','Florida','Rays','Kevin Cash');
+INSERT INTO team VALUES
+(7,'New York City','East','Brian Cashman','AL',1901,'Yankee Global Enterprises','New York','Yankees','Aaron Boone');
+INSERT INTO team VALUES
+(8,'Baltimore','East','Mike Elias','AL',1894,'John Angelos','Maryland','Orioles','Brandon Hyde');
+INSERT INTO team VALUES
+(9,'Toronto','East','Ross Atkins','AL',1977,'Rogers Communications',NULL,'Blue Jays','Charlie Montoyo');
+INSERT INTO team VALUES
+(10,'Boston','East','Brian OHalloran','AL',1901,'Fenway Sports Group','Massachusetts','Red Sox','Alex Cora');
+
 -- Player Table Data Insertion
 INSERT INTO player VALUES
-(33,'10-Feb-1989',188,1,"Travis D'Arnaud",10,2,16,'R','R',210,1);
+(33,'10-Feb-1989',188,1,'Travis DArnaud',10,2,16,'R','R',210,1);
 INSERT INTO player VALUES
 (28,'29-MAR-1994',196,2,'Matt Olsen',7,3,28,'L','R',225,1);
 INSERT INTO player VALUES
@@ -79,7 +101,7 @@ INSERT INTO player VALUES
 INSERT INTO player VALUES
 (25,'18-FEB-1997',193,37,'Ryan Mountcastle',3,3,6,'R','R',220,8);
 INSERT INTO player VALUES
-(28,'03-FEB-1994'180,,38,'Rougned Odor',9,4,12,'L','R',200,8);
+(28,'03-FEB-1994',180,38,'Rougned Odor',9,4,12,'L','R',200,8);
 INSERT INTO player VALUES
 (27,'23-JUN-1995',185,39,'Jorge Mateo',3,6,3,'R','R',200,8);
 INSERT INTO player VALUES
@@ -105,28 +127,6 @@ INSERT INTO player VALUES
 INSERT INTO player VALUES
 (30,'24-AUG-1991',180,50,'Enrique Hernandez',9,8,5,'R','R',190,10);
 
--- Team Table Data Insertion
-INSERT INTO team VALUES
-(1,'Atlanta','East','Alex Anthopoulos','NL',1876,'Braves Holdings LLC','Georgia','Braves','Brian Snitker');
-INSERT INTO team VALUES
-(2,'New York City','East','Billy Eppler','NL',1962,'Steve Cohen','New York','Mets','Buck Showalter');
-INSERT INTO team VALUES
-(3,'Miami','East','Kim Ng','NL',1991,'Bruce Sherman','Florida','Marlins','Don Mattingly');
-INSERT INTO team VALUES
-(4,'Philadelphia','East','Sam Fuld','NL',1883,'John Middleton','Pennsylvania','Phillies','Rob Thomson');
-INSERT INTO team VALUES
-(5,'Washington DC','East','Mike Rizzo','NL',1969,'Ted Lerner',NULL,'Nationals','Dave Martinez');
-INSERT INTO team VALUES
-(6,'Tampa Bay','East','Peter Bendix','AL',1998,'Stuart Sternberg','Florida','Rays','Kevin Cash');
-INSERT INTO team VALUES
-(7,'New York City','East','Brian Cashman','AL',1901,'Yankee Global Enterprises','New York','Yankees','Aaron Boone');
-INSERT INTO team VALUES
-(8,'Baltimore','East','Mike Elias','AL',1894,'John Angelos','Maryland','Orioles','Brandon Hyde');
-INSERT INTO team VALUES
-(9,'Toronto','East','Ross Atkins','AL',1977,'Rogers Communications',NULL,'Blue Jays','Charlie Montoyo');
-INSERT INTO team VALUES
-(10,'Boston','East',"Brian O'Halloran",'AL',1901,'Fenway Sports Group','Massachusetts','Red Sox','Alex Cora');
-
 -- Stadium Table Data Insertion
 INSERT INTO stadium VALUES
 ('Truist Park',1,'Atlanta',2017,41084);
@@ -143,7 +143,7 @@ INSERT INTO stadium VALUES
 INSERT INTO stadium VALUES
 ('Yankee Stadium',7,'The Bronx',2009,46537);
 INSERT INTO stadium VALUES
-('Oriole Park at Camden Yards',8,'Baltimore',1992,44970);
+('Camden Yards',8,'Baltimore',1992,44970);
 INSERT INTO stadium VALUES
 ('Rogers Centre',9,'Toronto',1989,41500);
 INSERT INTO stadium VALUES
@@ -173,105 +173,105 @@ INSERT INTO manager VALUES
 
 -- Player_Stats Table Data Insertion
 INSERT INTO player_stats VALUES
-("Travis D'Arnaud",1,426,106,18,19,268,319,472,11,2.8);
+('Travis DArnaud',1,426,106,18,19,268,319,472,11);
 INSERT INTO player_stats VALUES
-('Matt Olsen',2,699,148,34,75,240,325,477,4,3.4);
+('Matt Olsen',2,699,148,34,75,240,325,477,4);
 INSERT INTO player_stats VALUES
-('Vaughn Grissom',3,156,41,5,11,291,353,440,3,0.9);
+('Vaughn Grissom',3,156,41,5,11,291,353,440,3);
 INSERT INTO player_stats VALUES
-('Dansby Swanson',4,640,177,25,49,277,329,447,3,5.7);
+('Dansby Swanson',4,640,177,25,49,277,329,447,3);
 INSERT INTO player_stats VALUES
-('Michael Harris Jr.',5,441,123,19,21,297,339,514,5,5.3);
+('Michael Harris Jr.',5,441,123,19,21,297,339,514,5);
 INSERT INTO player_stats VALUES
-('Tomas Nido',6,313,68,3,14,239,276,324,1,0.3);
+('Tomas Nido',6,313,68,3,14,239,276,324,1);
 INSERT INTO player_stats VALUES
-('Pete Alonso',7,685,162,40,67,271,352,518,12,4.4);
+('Pete Alonso',7,685,162,40,67,271,352,518,12);
 INSERT INTO player_stats VALUES
-('Jeff McNeil',8,589,174,9,40,326,382,454,11,5.7);
+('Jeff McNeil',8,589,174,9,40,326,382,454,11);
 INSERT INTO player_stats VALUES
-('Fransisco Lindor',9,706,170,26,59,270,339,449,10,5.5);
+('Fransisco Lindor',9,706,170,26,59,270,339,449,10);
 INSERT INTO player_stats VALUES
-('Brandon Nimmo',10,673,159,16,71,274,367,433,16,5.1);
+('Brandon Nimmo',10,673,159,16,71,274,367,433,16);
 INSERT INTO player_stats VALUES
-('Jacob Stallings',11,384,77,4,29,223,292,292,6,-0.7);
+('Jacob Stallings',11,384,77,4,29,223,292,292,6);
 INSERT INTO player_stats VALUES
-('Jesus Aguilar',12,456,98,15,27,236,286,388,4,-0.7);
+('Jesus Aguilar',12,456,98,15,27,236,286,388,4);
 INSERT INTO player_stats VALUES
-('Jazz Chissom Jr.',13,241,54,14,21,254,325,535,3,2.4);
+('Jazz Chissom Jr.',13,241,54,14,21,254,325,535,3);
 INSERT INTO player_stats VALUES
-('Miguel Rojas',14,507,111,6,26,236,283,323,6,2.5);
+('Miguel Rojas',14,507,111,6,26,236,283,323,6);
 INSERT INTO player_stats VALUES
-('Jesus Sanchez',15,343,67,13,26,214,280,403,3,1.0);
+('Jesus Sanchez',15,343,67,13,26,214,280,403,3);
 INSERT INTO player_stats VALUES
-('J.T. Realmuto',16,504,139,22,41,276,342,478,12,)6.5;
+('J.T. Realmuto',16,504,139,22,41,276,342,478,12);
 INSERT INTO player_stats VALUES
-('Rhys Hoskins',17,672,145,30,72,246,332,462,6,2.9);
+('Rhys Hoskins',17,672,145,30,72,246,332,462,6);
 INSERT INTO player_stats VALUES
-('Jean Segura',18,387,98,10,25,277,336,387,7,1.8);
+('Jean Segura',18,387,98,10,25,277,336,387,7);
 INSERT INTO player_stats VALUES
-('Bryson Stott',19,466,100,10,36,234,295,358,1,1.2);
+('Bryson Stott',19,466,100,10,36,234,295,358,1);
 INSERT INTO player_stats VALUES
-('Matt Vierling',20,357,80,6,23,246,297,351,3,-0.6);
+('Matt Vierling',20,357,80,6,23,246,297,351,3);
 INSERT INTO player_stats VALUES
-('Keibert Ruiz',21,433,99,7,30,251,313,360,6,1.6);
+('Keibert Ruiz',21,433,99,7,30,251,313,360,6);
 INSERT INTO player_stats VALUES
-('Josh Bell',22,437,113,14,49,301,384,493,5,3.4);
+('Josh Bell',22,437,113,14,49,301,384,493,5);
 INSERT INTO player_stats VALUES
-('Cesar Hernandez',23,617,139,1,45,248,311,318,7,0.8);
+('Cesar Hernandez',23,617,139,1,45,248,311,318,7);
 INSERT INTO player_stats VALUES
-('Luis Garcia',24,377,99,7,11,275,295,408,1,0.0);
+('Luis Garcia',24,377,99,7,11,275,295,408,1);
 INSERT INTO player_stats VALUES
-('Victor Robles',25,407,82,6,17,224,273,311,9,1.8);
+('Victor Robles',25,407,82,6,17,224,273,311,9);
 INSERT INTO player_stats VALUES
-('Francisco Mejia',26,299,70,6,7,242,264,381,2,0.7);
+('Francisco Mejia',26,299,70,6,7,242,264,381,2);
 INSERT INTO player_stats VALUES
-('Ji Man Choi',27,419,83,11,58,233,341,388,2,1.2);
+('Ji Man Choi',27,419,83,11,58,233,341,388,2);
 INSERT INTO player_stats VALUES
-('Brandon Lowe',28,266,52,8,27,221,308,383,3,1.0);
+('Brandon Lowe',28,266,52,8,27,221,308,383,3);
 INSERT INTO player_stats VALUES
-('Taylor Walls',29,466,70,8,52,172,268,285,2,2.6);
+('Taylor Walls',29,466,70,8,52,172,268,285,2);
 INSERT INTO player_stats VALUES
-('Kevin Kiermaier',30,221,47,7,14,228,281,369,1,1.1);
+('Kevin Kiermaier',30,221,47,7,14,228,281,369,1);
 INSERT INTO player_stats VALUES
-('Jose Trevino',31,353,83,11,15,248,283,388,2,2.3);
+('Jose Trevino',31,353,83,11,15,248,283,388,2);
 INSERT INTO player_stats VALUES
-('Anthony Rizzo',32,548,104,32,58,224,338,480,23,2.3);
+('Anthony Rizzo',32,548,104,32,58,224,338,480,23);
 INSERT INTO player_stats VALUES
-('Gleyber Torres',33,572,135,24,39,257,310,451,3,4.1);
+('Gleyber Torres',33,572,135,24,39,257,310,451,3);
 INSERT INTO player_stats VALUES
-('Isiah Kiner-Falefa',34,531,126,4,35,261,314,327,5,3.0);
+('Isiah Kiner-Falefa',34,531,126,4,35,261,314,327,5);
 INSERT INTO player_stats VALUES
-('Aaron Judge',35,696,177,62,111,311,425,686,6,10.6);
+('Aaron Judge',35,696,177,62,111,311,425,686,6);
 INSERT INTO player_stats VALUES
-('Adley Rutschman',36,470,101,13,65,254,362,445,4,5.2);
+('Adley Rutschman',36,470,101,13,65,254,362,445,4);
 INSERT INTO player_stats VALUES
-('Ryan Mountcastle',37,609,139,22,43,250,305,423,4,1.3);
+('Ryan Mountcastle',37,609,139,22,43,250,305,423,4);
 INSERT INTO player_stats VALUES
-('Rougned Odor',38,472,88,13,32,207,275,357,10,-0.4);
+('Rougned Odor',38,472,88,13,32,207,275,357,10);
 INSERT INTO player_stats VALUES
-('Jorge Mateo',39,533,109,13,27,221,267,379,5,3.4);
+('Jorge Mateo',39,533,109,13,27,221,267,379,5);
 INSERT INTO player_stats VALUES
-('Cedric Mullins',40,672,157,16,47,258,318,403,9,3.8);
+('Cedric Mullins',40,672,157,16,47,258,318,403,9);
 INSERT INTO player_stats VALUES
-('Alejandro Kirk',41,541,134,14,63,285,372,415,4,3.9);
+('Alejandro Kirk',41,541,134,14,63,285,372,415,4);
 INSERT INTO player_stats VALUES
-('Vladimir Guerrero Jr.',42,706,175,32,58,274,339,480,6,3.9);
+('Vladimir Guerrero Jr.',42,706,175,32,58,274,339,480,6);
 INSERT INTO player_stats VALUES
-('Santiago Espinal',43,491,120,7,36,267,322,370,2,2.2);
+('Santiago Espinal',43,491,120,7,36,267,322,370,2);
 INSERT INTO player_stats VALUES
-('Bo Bichette',44,697,189,24,41,290,333,469,2,3.6);
+('Bo Bichette',44,697,189,24,41,290,333,469,2);
 INSERT INTO player_stats VALUES
-('Geroge Springer',45,583,137,25,54,267,342,472,7,4.0);
+('Geroge Springer',45,583,137,25,54,267,342,472,7);
 INSERT INTO player_stats VALUES
-('Cristian Vazquez',46,318,83,8,18,282,327,432,3,2.2);
+('Cristian Vazquez',46,318,83,8,18,282,327,432,3);
 INSERT INTO player_stats VALUES
-('Bobby Dalbec',47,353,68,12,29,215,283,369,3,-0.7);
+('Bobby Dalbec',47,353,68,12,29,215,283,369,3);
 INSERT INTO player_stats VALUES
-('Trevor Story',48,396,85,16,32,238,303,434,3,2.5);
+('Trevor Story',48,396,85,16,32,238,303,434,3);
 INSERT INTO player_stats VALUES
-('Xander Bogaerts',49,631,171,15,57,307,377,456,10,5.9);
+('Xander Bogaerts',49,631,171,15,57,307,377,456,10);
 INSERT INTO player_stats VALUES
-('Enrique Hernandez',50,402,80,6,34,222,291,338,3,0.9);
+('Enrique Hernandez',50,402,80,6,34,222,291,338,3);
 
 -- Team_Stats Table Data Insertion
 INSERT INTO team_stats VALUES

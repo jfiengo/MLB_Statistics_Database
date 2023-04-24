@@ -1,119 +1,94 @@
---DROP TABLE employee CASCADE CONSTRAINTS;
-CREATE TABLE employee (
-  fname    varchar2(15) not null, 
-  minit    varchar2(1),
-  lname    varchar2(15) not null,
-  ssn      char(9),
-  bdate    date,
-  address  varchar2(50),
-  sex      char,
-  salary   number(10,2),
-  superssn char(9),
-  dno      number(4),
-  primary key (ssn),
-  foreign key (superssn) references employee(ssn)
---  foreign key (dno) references department(dnumber)
-);
+-- MLB Database Project
+-- Schema Creation Script
+-- Jack Fiengo, Griffin Schenker, Gabe Agrama, and Aidan Burke
+-- 4/28/2023 // Dr. Venkat Margapuri
 
---DROP TABLE department CASCADE CONSTRAINTS;
-CREATE TABLE department (
-  dname        varchar2(25) not null,
-  dnumber      number(4),
-  mgrssn       char(9) not null, 
-  mgrstartdate date,
-  primary key (dnumber),
-  unique (dname),
-  foreign key (mgrssn) references employee(ssn)
-);
+DROP TABLE team CASCADE CONSTRAINTS;
+DROP TABLE player CASCADE CONSTRAINTS;
+DROP TABLE manager CASCADE CONSTRAINTS;
+DROP TABLE team_stats CASCADE CONSTRAINTS;
+DROP TABLE player_stats CASCADE CONSTRAINTS;
+DROP TABLE stadium CASCADE CONSTRAINTS;
 
-ALTER TABLE employee ADD (
-  foreign key (dno) references department(dnumber)
-);
-
-DROP TABLE dept_locations CASCADE CONSTRAINTS;
-CREATE TABLE dept_locations (
-  dnumber   number(4),
-  dlocation varchar2(15), 
-  primary key (dnumber,dlocation),
-  foreign key (dnumber) references department(dnumber)
-);
-
---DROP TABLE project CASCADE CONSTRAINTS;
-CREATE TABLE project (
-  pname      varchar2(25) not null,
-  pnumber    number(4),
-  plocation  varchar2(15),
-  dnum       number(4) not null,
-  primary key (pnumber),
-  unique (pname),
-  foreign key (dnum) references department(dnumber)
-);
-
---DROP TABLE works_on CASCADE CONSTRAINTS;
-CREATE TABLE works_on (
-  essn   char(9),
-  pno    number(4),
-  hours  number(4,1),
-  primary key (essn,pno),
-  foreign key (essn) references employee(ssn),
-  foreign key (pno) references project(pnumber)
-);
-
---DROP TABLE dependent CASCADE CONSTRAINTS;
-CREATE TABLE dependent (
-  essn           char(9),
-  dependent_name varchar2(15),
-  sex            char,
-  bdate          date,
-  relationship   varchar2(8),
-  primary key (essn,dependent_name),
-  foreign key (essn) references employee(ssn)
-);
-
-
-
-
-
--- New
--- DROP TABLE team CASCADE CONSTRAINTS;
 CREATE TABLE team (
   team_id     number(2) not null,
   city        varchar2(25) not null,
   division    varchar2(25) not null,
   gm          varchar2(25), 
-  league      varchar2(25) not null, 
+  league      varchar2(2) not null, 
   origin_year number(4),
-  owner       varchar(25) not null,
-  state       varchar(25) not null,
-  tname       varchar(25) not null,
+  owner       varchar2(25) not null,
+  state       varchar2(25),
+  tname       varchar2(25) not null,
+  mname       varchar2(25) not null,       
+  primary key (team_id)
 );
 
--- DROP TABLE player CASCADE CONSTRAINTS;
+CREATE TABLE manager (
+  mname       varchar2(25) not null,
+  age         number(2),
+  year_in_leage number(2),
+  wins        number(4),
+  losses      number(4),
+  team        varchar2(25),
+  primary key (mname)
+);
+
+-- Adding foreign key mname to team that references manager(mname)
+ALTER TABLE team ADD (
+  foreign key (mname) references manager(mname)
+);
+
 CREATE TABLE player (
   age         number(2) not null,
   birthday    date not null,
-  height      number(3),
+  cm          number(3),
   player_id   number(3) not null,
-  pname       varchar(25) not null,
+  pname       varchar2(25) not null,
   season_num  number(2),
   position    number(1),
-  number      number(2),
-  bat_side    varchar(1),
-  throw_side  varchar(1),
-  weight      number(3,2),
+  numb        number(2),
+  bat_side    varchar2(1),
+  throw_side  varchar2(1),
+  pounds      number(3),
+  team_id     number(2) not null,
+  primary key (player_id),
+  foreign key (team_id) references team(team_id)
 );
 
--- DROP TABLE manager CASCADE CONSTRAINTS;
-CREATE TABLE manager (
-
-);
-
--- DROP TABLE team_Stats CASCADE CONSTRAINTS;
 CREATE TABLE team_Stats (
-
+  tname       varchar2(25) not null,
+  team_id     number(2) not null,
+  wins        number(3),
+  losses      number(3),
+  slg         number(3),
+  obp         number(3),
+  avg         number(3),
+  primary key (tname,team_id),
+  foreign key (team_id) references team(team_id)
 );
 
--- DROP TABLE player_Stats CASCADE CONSTRAINTS;
 CREATE TABLE player_Stats (
+  pname       varchar2(25) not null,
+  player_id   number(3) not null,
+  pa          number(3),
+  hits        number(3),
+  hr          number(2),
+  bb          number(3),
+  avg         number(3),
+  obp         number(3),
+  slg         number(3),
+  hbp         number(2),
+  primary key (pname,player_id),
+  foreign key (player_id) references player(player_id)
+);
 
+CREATE TABLE stadium (
+  sname       varchar2(25) not null,
+  team_id     number(2) not null,
+  loc         varchar2(25) not null,
+  yr_of_origin number(4),
+  capacity    number(6),
+  primary key (sname,team_id),
+  foreign key (team_id) references team(team_id)
 );
